@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PopularMovies1</string>
+    <string name="movie_db_key">f5a2d8a50b720f360a14f6b6101b3fa8</string>
+    <string name="movie_url_base">http://image.tmdb.org/t/p</string>
+    <string name="sort_order_popular_label">Most popular movies</string>
+    <string name="sort_order_rate_label">Highest rated movies</string>
+    <string name="sort_order_popular_param">popularity.desc</string>
+    <string name="sort_order_rate_param">vote_average.desc</string>
+    <string name="movie_image_description">Image of movie\'s poster</string>
+</resources>
