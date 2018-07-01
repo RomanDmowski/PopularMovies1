@@ -11,22 +11,19 @@ import java.util.Scanner;
 
 public class netUtility {
 
-    final static String MOVIE_DB_BASE_URL = "https://api.themoviedb.org/3/discover/movie";
-    final static String PARAM_KEY = "api_key";
+    private final static String MOVIE_DB_BASE_URL = "https://api.themoviedb.org/3/discover/movie";
+    private final static String PARAM_KEY = "api_key";
+    private final static String PARAM_LANGUAGE = "language";
+    private final static String language = "en-US";
+    private final static String PARAM_SORT = "sort_by";
+    private final static String PARAM_PAGE = "page";
+    private final static String page_number = "1";
 
 
-    final static String PARAM_LANGUAGE = "language";
-    final static String language = "en-US";
-
-    final static String PARAM_SORT = "sort_by";
-
-    final static String PARAM_PAGE = "page";
-    final static String page_number = "1";
 
     public static URL buildURL (String sort_by, String user_key) {
 
         //https://api.themoviedb.org/3/discover/movie?api_key=<user_key>&language=en-US&sort_by=popularity.desc&page=1
-
         Uri uri = Uri.parse(MOVIE_DB_BASE_URL).buildUpon()
                 .appendQueryParameter(PARAM_LANGUAGE,language)
                 .appendQueryParameter(PARAM_SORT,sort_by)
@@ -47,8 +44,7 @@ public class netUtility {
 
     public static String getHttpResponse (URL url) throws IOException {
 
-
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+      HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try {
             InputStream in = urlConnection.getInputStream();
 

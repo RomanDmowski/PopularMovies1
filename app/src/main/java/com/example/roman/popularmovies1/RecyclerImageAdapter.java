@@ -12,25 +12,24 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class RecyclerImageAdapter extends RecyclerView.Adapter<RecyclerImageAdapter.ViewHolder>{
 
     private List<Movie> mMovieList;
-    private static Context mContext;
-    //private static final String URL_BASE = "http://image.tmdb.org/t/p/w185";
+    final Context mContext;
+
     private static String mUrlBase;
 
-    private  GridItemClickListener mClickListener;
+    private final GridItemClickListener mClickListener;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public ImageView mImageView;
-        public ViewHolder(View view){
+        private final ImageView mImageView;
+        ViewHolder(View view){
             super(view);
             mImageView = view.findViewById(R.id.movies_grid_item_image_view);
             view.setOnClickListener(this);
         }
-
-
 
         @Override
         public void onClick(View v) {
@@ -65,16 +64,13 @@ public class RecyclerImageAdapter extends RecyclerView.Adapter<RecyclerImageAdap
     public RecyclerImageAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View itemLayoutView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.movies_grid_item,null);
+                .inflate(R.layout.movies_grid_item,parent,false);
 
-        ViewHolder vh = new ViewHolder(itemLayoutView);
-
-        return vh;
+        return new ViewHolder(itemLayoutView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerImageAdapter.ViewHolder holder, int position) {
-        //ImageView iv = null;
 
         String posterPath = mMovieList.get(position).getPosterPath();
         String fullPathPoster = mUrlBase + posterPath;

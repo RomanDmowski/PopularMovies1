@@ -21,9 +21,9 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         mImagePoster =  findViewById(R.id.iv_detail_movie_poster);
-        mMovieTitleAndReleaseDate = (TextView) findViewById(R.id.tv_detail_movie_title_and_release_date);
-        mMovieVoteAverage = (TextView) findViewById(R.id.tv_movie_vote_average);
-        mMoviePlot = (TextView) findViewById(R.id.tv_movie_plot);
+        mMovieTitleAndReleaseDate = findViewById(R.id.tv_detail_movie_title_and_release_date);
+        mMovieVoteAverage = findViewById(R.id.tv_movie_vote_average);
+        mMoviePlot = findViewById(R.id.tv_movie_plot);
         mUrlBase = getString(R.string.movie_url_base) + "/w500";
 
         Intent intent = getIntent();
@@ -36,7 +36,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     }
 
-    void displayMovie (Movie movie) {
+    private void displayMovie(Movie movie) {
         String title = movie.getTitle();
         String releaseDate = movie.getReleaseDate();
         String voteAverage = Double.toString( movie.getVoteAverage());
@@ -44,8 +44,10 @@ public class DetailsActivity extends AppCompatActivity {
         String posterPath = movie.getPosterPath();
         String fullPathPoster = mUrlBase + posterPath;
         Picasso.with(this).load(fullPathPoster).placeholder(R.drawable.placeholder185px).into(mImagePoster);
-        mMovieTitleAndReleaseDate.setText(title + " (" + releaseDate + ")");
-        mMovieVoteAverage.setText(voteAverage + "/10");
+        String text1 = title + " (" + releaseDate + ")";
+        mMovieTitleAndReleaseDate.setText(text1);
+        text1 = voteAverage + "/10";
+        mMovieVoteAverage.setText(text1);
         mMoviePlot.setText(plot);
     }
 }

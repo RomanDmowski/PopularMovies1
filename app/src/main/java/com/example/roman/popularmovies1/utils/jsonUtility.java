@@ -9,10 +9,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("SpellCheckingInspection")
 public class jsonUtility {
 
 
-    public static List<Movie> parseMoviesDbJson(String json) throws JSONException {
+    public static List<Movie> parseMoviesDbJson(String json) {
 
 
 
@@ -33,7 +34,6 @@ public class jsonUtility {
         try {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray resultsArray = jsonObject.getJSONArray("results");
-            Movie thisMovie = new Movie();
             List<Movie> movieListResult = new ArrayList<>();
 
             for (int i=0; i< resultsArray.length();i++){

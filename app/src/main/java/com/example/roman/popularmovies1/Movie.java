@@ -19,6 +19,7 @@ public class Movie implements Parcelable {
     private String backdropPath;
 
 
+    @SuppressWarnings("unused")
     public Movie () {
 
     }
@@ -33,6 +34,7 @@ public class Movie implements Parcelable {
 
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     public Movie(String title, String releaseDate, double voteAverage, String plotSynopsis, String posterPath , String backdropPath) {
         this.title = title;                 //"title": "Jurassic World: Fallen Kingdom",
         this.releaseDate = releaseDate;     //"release_date": "2018-06-06"
@@ -41,9 +43,6 @@ public class Movie implements Parcelable {
         this.posterPath = posterPath;       //"poster_path": "/to0spRl1CMDvyUbOnbb4fTk3VAd.jpg",
         this.backdropPath = backdropPath;   //"backdrop_path": "/3P52oz9HPQWxcwHOwxtyrVV1LKi.jpg",
     }
-
-
-
 
     @Override
     public int describeContents() {
@@ -78,44 +77,21 @@ public class Movie implements Parcelable {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getReleaseDate() {
         return releaseDate;
-    }
-
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
     }
 
     public double getVoteAverage() {
         return voteAverage;
     }
 
-    public void setVoteAverage(double voteAverage) {
-        this.voteAverage = voteAverage;
-    }
-
     public String getPlotSynopsis() {
         return plotSynopsis;
-    }
-
-    public void setPlotSynopsis(String plotSynopsis) {
-        this.plotSynopsis = plotSynopsis;
     }
 
     public String getPosterPath() {
         return posterPath;
     }
 
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
-    }
-
-    public String getBackdropPath() { return backdropPath; }
-
-    public void setBackdropPath(String backdropPath) { this.backdropPath = backdropPath; }
 }
 
